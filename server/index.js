@@ -4,6 +4,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const adminRouter = require('./routes/adminRoutes');
 const userRouter = require('./routes/userRoutes');
+const driverRouter = require('./routes/driverRoutes');
 
 dotenv.config();
 
@@ -27,6 +28,7 @@ app.use(cors());
 
 app.use('/admin', adminRouter);
 app.use('/user', userRouter);
+app.use("/driver", driverRouter);
 
 
 app.listen(3000, () => console.log('Server running on port 3000'));
