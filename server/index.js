@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const adminRouter = require('./routes/adminRoutes');
+const userRouter = require('./routes/userRoutes');
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use('/admin', adminRouter);
+app.use('/user', userRouter);
 
 
 app.listen(3000, () => console.log('Server running on port 3000'));
