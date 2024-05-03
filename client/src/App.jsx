@@ -1,12 +1,14 @@
+// App.js
 
-import './App.css'
+import React from 'react';
+import AuthPage from './AuthPage';
 
-function App() {
-
-
+const App = () => {
   return (
-    <></>
-  )
-}
+    <div className="bg-gray-200 min-h-screen flex justify-center items-center">
+      <AuthPage />
+    </div>
+  );
+};
 
-export default App
+export default App;
