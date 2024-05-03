@@ -25,8 +25,8 @@ const HomePage = () => {
                     <div onMouseLeave={() => setSignInDropDown(false)}>
                         <ul className='w-24 h-20 border-2 border-red-800'>
                             <Link to="/adminLogin" className='cursor-pointer hover:text-blue-400'>Admin</Link>
-                            <li className='cursor-pointer hover:text-blue-400'>Driver</li>
-                            <li className='cursor-pointer hover:text-blue-400'>User</li>
+                            <Link to="/userLogin" className='cursor-pointer hover:text-blue-400'>Driver</Link>
+                            <Link to="/driverLogin" className='cursor-pointer hover:text-blue-400'>User</Link>
                         </ul>
                     </div>
                 )}
