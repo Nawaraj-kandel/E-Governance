@@ -1,38 +1,94 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Button from "../components/button/Button";
 
 const HomePage = () => {
-    const [signUpDropDown, setSignUpDropDown] = useState(false);
-    const [signInDropDown, setSignInDropDown] = useState(false);
+  const [signUpDropDown, setSignUpDropDown] = useState(false);
+  const [signInDropDown, setSignInDropDown] = useState(false);
 
-    return (
-        <div className='w-full h-16 bg-slate-600 flex gap-10'>
-            <div>
-                <button className='w-24 h-12 bg-red-200 rounded-md border-none text-base' onMouseEnter={() => setSignUpDropDown(!signUpDropDown)}>Sign up</button>
-                {signUpDropDown && (
-                    <div onMouseLeave={() => setSignUpDropDown(false)}>
-                        <ul className='w-24 h-20 border-2 border-red-800'>
-                            <li className='cursor-pointer hover:text-blue-400'>Admin</li>
-                            <li className='cursor-pointer hover:text-blue-400'>Driver</li>
-                            <li className='cursor-pointer hover:text-blue-400'>User</li>
-                        </ul>
-                    </div>
-                )}
-            </div>
-            <div>
-                <button className='w-24 h-12 bg-red-200 rounded-md border-none text-base' onMouseEnter={() => setSignInDropDown(!signInDropDown)}>Sign in</button>
-                {signInDropDown && (
-                    <div onMouseLeave={() => setSignInDropDown(false)}>
-                        <ul className='w-24 h-20 border-2 border-red-800'>
-                            <Link to="/adminLogin" className='cursor-pointer hover:text-blue-400'>Admin</Link>
-                            <Link to="/userLogin" className='cursor-pointer hover:text-blue-400'>Driver</Link>
-                            <Link to="/driverLogin" className='cursor-pointer hover:text-blue-400'>User</Link>
-                        </ul>
-                    </div>
-                )}
-            </div>
+  const register = [
+    {
+      href: "/adminRegister",
+      name: "Admin",
+    },
+    {
+      href: "/userRegister",
+      name: "User",
+    },
+    {
+      href: "/driverRegister",
+      name: "Driver",
+    },
+  ];
+
+  const login = [
+    {
+      href: "/adminLogin",
+      name: "Admin",
+    },
+    {
+      href: "/userLogin",
+      name: "User",
+    },
+    {
+      href: "/driverLogin",
+      name: "Driver",
+    },
+  ];
+
+  return (
+    <div className="w-full h-16 bg-slate-600 flex gap-10">
+      <div>
+        <div className="w-24 h-12"  onMouseEnter={() => setSignUpDropDown(!signUpDropDown)}>
+        <Button name="Sign Up"  />
         </div>
-    );
+        {signUpDropDown && (
+          <div onMouseLeave={() => setSignUpDropDown(false)}>
+            <ul className="w-24 h-20 border-2 flex flex-col border-red-800">
+              {register.map((items) => {
+                return (
+                  
+                    <Link
+                      to={items.href}
+                      key={items.href}
+                      className="cursor-pointer hover:text-blue-400"
+                    >
+                    
+                      {items.name}
+                    </Link>
+                  
+                );
+              })}
+            </ul>
+          </div>
+        )}
+      </div>
+      <div>
+      <div className="w-24 h-12" onMouseEnter={() => setSignInDropDown(!signInDropDown)}>
+      <Button name="Sign In" />
+      </div>
+        {signInDropDown && (
+          <div onMouseLeave={() => setSignInDropDown(false)}>
+            <ul className="w-24 h-20 border-2 flex flex-col border-red-800">
+              {login.map((items) => {
+                return (
+                  
+                    <Link
+                      to={items.href}
+                      key={items.href}
+                      className="cursor-pointer hover:text-blue-400"
+                    >
+                     {items.name}
+                    </Link>
+                  
+                );
+              })}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default HomePage;
