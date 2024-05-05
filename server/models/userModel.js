@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const {Schema} = require('mongoose');
 
 const userModel = new Schema({
-   fullname:{type:String, require},
+   fullName:{type:String, require},
    localGoverment: {type:String, require},
    wardNo:{type:Number, require},
    village:{type:String, require},

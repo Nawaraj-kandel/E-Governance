@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const {Schema} = require('mongoose');
 
 const driverModel = new Schema({
-    fullname:{type:String, require},
+    fullName:{type:String, require},
     email:{type:String, require},
     password:{type:String, require},
     contact:{type:String, require},
