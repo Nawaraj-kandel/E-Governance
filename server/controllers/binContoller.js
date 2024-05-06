@@ -55,3 +55,10 @@ exports.updateBin = async(req, res)=>{
     const response = await Bin.findByIdAndUpdate(id, req.body, {new:true});
     res.status(200).json({message:"updated successfully", data:response}); 
 }
+
+
+exports.deleteBin = async(req,res)=>{
+    const {id} = req.params;
+     const response = await Bin.findByIdAndDelete(id);
+     res.status(200).json({message:"delete successfully"});
+}
