@@ -2,9 +2,10 @@ const bcrypt = require('bcrypt');
 const { User } = require('../models/userModel');
 
 exports.createUser = async(req, res)=>{
-    const {email, password, fullname,localGoverment, wardNo, village, tollname} = req.body;
+    const {email, password, fullName,localGoverment, wardNo, village, tollName} = req.body;
+    console.log(req.body);
 
-    if(!(email&& password && fullname && localGoverment && wardNo && village)){
+    if(!(email&& password && fullName && localGoverment && wardNo && village)){
         return res.status(400).json({message:"require field is empty"});
     }
     const existingUser = await User.findOne({email:email});
@@ -19,11 +20,11 @@ exports.createUser = async(req, res)=>{
         const hashPass = await bcrypt.hash(password, 10);
   
         const user= await User.create({
-           fullname,
+           fullName,
            localGoverment,
            village,
            wardNo,
-           tollname,
+           tollName,
            email,
            password:hashPass,
   

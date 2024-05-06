@@ -13,13 +13,26 @@ const UserRegister = () => {
     email:"",
     password :""
   })
-  const handleChange =(e)=>{
-    e.preventDefault();
+  const [emailError, setEmailError] = useState(false);
+  const handleChange = (e)=>{
+    const {name, value} = e.target;
+    
+    if(name === 'email'){
+      const pattern = /^[a-zA-Z0-9._%+-]+@(?!gmail\.com)(?:[a-zA-Z0-9-]+\.)?user\.com$/;
+      if (!pattern.test(value)) {
+        setEmailError(true);
+      }
+      else{
+        setEmailError(false);
+      }
+    }
+
     setData({
       ...data,
-      [e.target.name]: e.target.value
+      [name] : value
     })
-  }
+ 
+  };
 
   const handleSubmit = (e)=>{
         e.preventDefault();
@@ -51,6 +64,7 @@ const UserRegister = () => {
         <div>
           <label htmlFor="email">Email</label>
           <input type="email" id='email' name='email' onChange={(e)=> handleChange(e)} />
+          {emailError && <p style={{ color: 'red' }}>Invalid email, add @user.com</p>}
         </div>
         <div>
           <label htmlFor="password">Password</label>

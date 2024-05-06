@@ -12,4 +12,16 @@ const binModel = new Schema({
     cyclePeriod:{type:String, enum:["daily", "twice", "weekly"]}
 })
 
+const virtual = binModel.virtual('id');
+virtual.get(function(){
+    return this._id;
+})
+
+binModel.set('toJSON', {
+    virtuals:true,
+    versionKey:false,
+    transform: function(doc,ret) { delete ret._id}
+
+})
+
 exports.Bin = mongoose.model('bins', binModel) || mongoose.models.bins;
