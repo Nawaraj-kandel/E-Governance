@@ -11,7 +11,7 @@ const AdminHomePage = () => {
     {
       icon:"",
       name:"Update Bin",
-      href:""
+      href:"/bin"
     },
     {
        icon:"",
