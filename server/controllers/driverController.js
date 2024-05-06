@@ -2,24 +2,25 @@ const bcrypt = require('bcrypt');
 const { Driver } = require('../models/driverModel');
 
 exports.createDriver = async(req, res)=>{
-    const {email, password, fullname,address, contact} = req.body;
 
-    if(!(email&& password && fullname && address && contact)){
+    const {email, password, fullName,address,contact} = req.body;
+
+    if(!(email&& password && fullName && address && contact)){
         return res.status(400).json({message:"require field is empty"});
     }
+
     const existingUser = await Driver.findOne({email:email});
 
     if(existingUser){
         return res.status(400).json({message:"user already exist"});
      }
-
+    
      const pattern = /^[a-zA-Z0-9._%+-]+@(?!gmail\.com)(?:[a-zA-Z0-9-]+\.)?driver\.com$/;
-
+    
      if(pattern.test(email)){
         const hashPass = await bcrypt.hash(password, 10);
-  
         const user= await Driver.create({
-           fullname,
+           fullName,
            address,
            contact,
            email,

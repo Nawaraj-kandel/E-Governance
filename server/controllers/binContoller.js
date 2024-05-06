@@ -34,3 +34,24 @@ exports.createBin = async(req, res)=>{
 
     res.status(200).json({message:"bin created successfully"});
 }
+
+exports.getBin= async(req,res)=>{
+    const response = await Bin.find();
+    res.status(200).json({data:response});
+}
+
+exports.getSpecificBin= async(req,res)=>{
+
+    const {id} = req.params;
+    const response = await Bin.findById(id);
+    res.status(200).json({data:response});
+
+}
+
+
+
+exports.updateBin = async(req, res)=>{
+    const {id} = req.params;
+    const response = await Bin.findByIdAndUpdate(id, req.body, {new:true});
+    res.status(200).json({message:"updated successfully", data:response}); 
+}

@@ -8,4 +8,16 @@ const adminSchema = new Schema({
     password:{type:String, require},
 })
 
+const virtual = adminSchema.virtual('id');
+virtual.get(function(){
+    return this._id;
+})
+
+adminSchema.set('toJSON', {
+    virtuals:true,
+    versionKey:false,
+    transform: function(doc,ret) { delete ret._id}
+
+})
+
 exports.admin = mongoose.model("admins", adminSchema) || mongoose.models.admins 

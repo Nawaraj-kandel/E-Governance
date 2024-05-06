@@ -9,4 +9,16 @@ const driverModel = new Schema({
     address:{type:String, require}
 })
 
+const virtual = driverModel.virtual('id');
+virtual.get(function(){
+    return this._id;
+})
+
+driverModel.set('toJSON', {
+    virtuals:true,
+    versionKey:false,
+    transform: function(doc,ret) { delete ret._id}
+
+})
+
 exports.Driver = mongoose.model('drivers', driverModel) || mongoose.models.drivers

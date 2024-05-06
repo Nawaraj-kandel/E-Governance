@@ -11,4 +11,16 @@ const userModel = new Schema({
    password :{type:String}
 })
 
+const virtual = userModel.virtual('id');
+virtual.get(function(){
+    return this._id;
+})
+
+userModel.set('toJSON', {
+    virtuals:true,
+    versionKey:false,
+    transform: function(doc,ret) { delete ret._id}
+
+})
+
 exports.User = mongoose.model('users', userModel) ||mongoose.models.users
