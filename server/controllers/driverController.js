@@ -36,6 +36,11 @@ exports.createDriver = async(req, res)=>{
      }
 }
 
+exports.getDriver = async(req,res)=>{
+  const data = await Driver.find();
+  res.status(200).json({data:data});
+}
+
 exports.checkDriver = async(req, res)=>{
     try{
       const {email, password} = req.body;
