@@ -44,20 +44,37 @@ const AdminForm = () => {
   
   return (
     <>
-      <form>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input type="email" id='email' name='email' onChange={(e)=> handleChange(e)} />
+      <div className="bg-gray-100 min-h-screen flex justify-center items-center">
+      <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-md">
+        <div className="mb-4">
+          <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            onChange={(e)=> handleChange(e)}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input type="password" id='password' name='password' onChange={(e)=> handleChange(e)}/>
-        
+        <div className="mb-6">
+          <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            onChange={(e)=> handleChange(e)}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
         </div>
-        <div className='w-24 h-12' onClick={(e)=> handleSubmit(e)}>
-          <Button name="Login"/>
+        <div className=" w-24 h-12 flex justify-center" onClick={(e)=>handleSubmit(e)}>
+          <Button name="Login"  />
         </div>
       </form>
+    </div>
     </>
   )
 }

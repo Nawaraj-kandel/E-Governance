@@ -26,7 +26,7 @@ const AdminHomePage = () => {
     },
     {
       icon:"",
-      name:"Compalint",
+      name:"Complaint",
       href:"/displayComplaint",
     },{
       icon:"",
@@ -36,13 +36,18 @@ const AdminHomePage = () => {
 
   ]
   return (
-    <div>
-         {items.map((item)=>{
-          return(
-            <Box key={item.index} icon={item.icon} name={item.name} link={item.href}/>
-          )
-         })}
+  <>
+  <h1 className='text-center font-semibold text-2xl pt-10'>Admin Panel</h1>
+      <div className="w-full h-[80vh] flex justify-center items-center">
+      <div className="w-full max-w-screen-lg">
+        <div className="grid grid-cols-1 place-items-center sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6">
+          {items.map((item, index) => (
+            <Box key={index} icon={item.icon} name={item.name} link={item.href} />
+          ))}
+        </div>
+      </div>
     </div>
+  </>
   )
 }
 
