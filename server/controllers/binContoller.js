@@ -2,7 +2,7 @@ const { Bin } = require("../models/binModel");
 const { Driver } = require("../models/driverModel");
 
 exports.createBin = async(req, res)=>{
-    const { binNumber,  locality,landMark,village,driverEmail,driverName,loadType, cyclePeriod} = req.body;
+    const { binNumber,  locality,landMark,village,driverEmail,driverName,loadType, cyclePeriod, status} = req.body;
 
     if(!(binNumber && locality && landMark && village && driverEmail && driverName && loadType && cyclePeriod)){
         return res.status(400).json({
@@ -29,7 +29,8 @@ exports.createBin = async(req, res)=>{
         driverEmail,
         driverName,
         loadType,
-        cyclePeriod
+        cyclePeriod,
+        status
     })
 
     res.status(200).json({message:"bin created successfully"});

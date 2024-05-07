@@ -53,9 +53,11 @@ exports.checkAdmin = async(req, res)=>{
    if(email){
     const check_email = await admin.findOne({email:email});
     const comparePass = await bcrypt.compare(password , check_email.password);
+
+    check_email.password = undefined;
  
      if(check_email.email == email && comparePass){
-       return res.status(200).json({message:"login successfully"})
+       return res.status(200).json({message:"login successfully", data:check_email})
      }
      else{
        return res.status(400).json({message:"wrong credentials"})

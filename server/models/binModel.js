@@ -8,6 +8,7 @@ const binModel = new Schema({
     village:{type:String, require},
     driverEmail:{type:String, require},
     driverName:{type:String, require},
+    status:{type:String, enum:["On progress", "Completed", "In Complete"]},
     loadType:{type:String, enum:["low", "medium", "high"]},
     cyclePeriod:{type:String, enum:["daily", "twice", "weekly"]}
 })

@@ -3,10 +3,12 @@ import Button from '../button/Button'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import { userLogin } from '../../context/LoginContext'
 
 
 
 const UserForm = () => {
+  const {user} = userLogin();
   const navigate = useNavigate();
   const [data, setData] = useState({
     email:"",
@@ -29,10 +31,14 @@ const UserForm = () => {
   const handleSubmit = async(e)=>{
     e.preventDefault();
     const response = await axios.post("http://localhost:3000/user/login", data, config );
-    console.log(response);
+
     if(response){
+      const email= response.data.data.email;
+      const fullname = response.data.data.fullName;
+      const address =response.data.data.village;
       toast.success(response.data.message);
-      navigate('/');
+      user(email, fullname, address);
+      navigate('/userHomePage');
     }
     else{
       toast.error("failed");

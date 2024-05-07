@@ -6,7 +6,8 @@ const driverModel = new Schema({
     email:{type:String, require},
     password:{type:String, require},
     contact:{type:String, require},
-    address:{type:String, require}
+    address:{type:String, require},
+
 })
 
 const virtual = driverModel.virtual('id');

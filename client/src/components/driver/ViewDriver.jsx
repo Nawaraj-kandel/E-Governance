@@ -7,11 +7,16 @@ const ViewDriver = () => {
     useEffect(()=>{
         const fetchData = async()=>{
             var response = await axios.get("http://localhost:3000/driver");
-            console.log(response);
+            setData(response.data.data);
         }
-    })
+
+        fetchData();
+    }, []);
   return (
-    <div>
+    <>
+     {data && (
+        <>
+        <h1>Driver information</h1>
          {
               data.map((item)=>{
                 return(
@@ -19,10 +24,10 @@ const ViewDriver = () => {
                   <div className="grid grid-cols-2 gap-4">
                       <div>
                           <p><span className="font-bold">Driver Id:</span> {item.id}</p>
-                          <p><span className="font-bold">Driver Email:</span> {item.driverEmail}</p>
-                          <p><span className="font-bold">Driver Name:</span> {item.driverName}</p>
-                          <p><span className="font-bold">Contact:</span> {item.driverName}</p>
-                          <p><span className="font-bold">Address:</span> {item.driverName}</p>
+                          <p><span className="font-bold">Driver Email:</span> {item.email}</p>
+                          <p><span className="font-bold">Driver Name:</span> {item.fullName}</p>
+                          <p><span className="font-bold">Contact:</span> {item.contact}</p>
+                          <p><span className="font-bold">Address:</span> {item.address}</p>
                       </div>
                    
                   </div>
@@ -31,7 +36,9 @@ const ViewDriver = () => {
                 )
               })
              } 
-    </div>
+        </>
+     )}   
+    </>
   )
 }
 

@@ -3,10 +3,12 @@ import Button from '../button/Button'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import { userLogin } from '../../context/LoginContext'
 
 
 
 const DriverForm = () => {
+   const {driver} = userLogin();
   const navigate = useNavigate();
   const [data, setData] = useState({
     email:"",
@@ -29,10 +31,10 @@ const DriverForm = () => {
   const handleSubmit = async(e)=>{
     e.preventDefault();
     const response = await axios.post("http://localhost:3000/driver/login", data, config );
-    console.log(response);
     if(response){
       toast.success(response.data.message);
-      navigate('/');
+      driver(response.data.check_email.email);
+      navigate('/driverHomePage');
     }
     else{
       toast.error("failed");

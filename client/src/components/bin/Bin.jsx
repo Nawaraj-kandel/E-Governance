@@ -34,6 +34,8 @@ const Bin = () => {
           toast.error("Error occurred while deleting.");
       }
   };
+
+  console.log(data);
   return (
     <>
     
@@ -58,6 +60,7 @@ const Bin = () => {
                           <p><span className="font-bold">Load Type:</span> {item.loadType}</p>
                           <p><span className="font-bold">Locality:</span> {item.locality}</p>
                           <p><span className="font-bold">Village:</span> {item.village}</p>
+                          {item.status && <p><span className="font-bold">Status:</span> {item.status}</p>}
 
                       </div>
                      <Link to={`/updateBin/${item.id}`}>

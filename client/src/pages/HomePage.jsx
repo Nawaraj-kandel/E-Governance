@@ -14,11 +14,7 @@ const HomePage = () => {
     {
       href: "/userRegister",
       name: "User",
-    },
-    {
-      href: "/driverRegister",
-      name: "Driver",
-    },
+    }
   ];
 
   const login = [

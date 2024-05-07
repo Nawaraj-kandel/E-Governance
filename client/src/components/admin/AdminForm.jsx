@@ -3,10 +3,12 @@ import Button from '../button/Button'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import { userLogin } from '../../context/LoginContext'
 
 
 
 const AdminForm = () => {
+  const {admin} = userLogin();
   const navigate = useNavigate();
   const [data, setData] = useState({
     email:"",
@@ -32,7 +34,8 @@ const AdminForm = () => {
     console.log(response);
     if(response){
       toast.success(response.data.message);
-      navigate('/');
+       admin(response.data.data.email);
+      navigate('/adminHomePage');
     }
     else{
       toast.error("failed");
