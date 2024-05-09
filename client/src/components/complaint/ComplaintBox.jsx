@@ -12,7 +12,7 @@ const ComplaintBox = () => {
         console.log(response);
     }
   return (
-    <div>
+    <div className='bg-green-200'>
         <h1>hello</h1>
         <div className="relative">
       <textarea

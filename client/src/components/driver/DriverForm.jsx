@@ -43,7 +43,7 @@ const DriverForm = () => {
   
   return (
     <>
-      <div className="min-h-screen flex justify-center items-center bg-gray-100">
+      <div className="min-h-screen flex justify-center items-center  bg-green-200">
       <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-md">
         <div className="mb-4">
           <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">

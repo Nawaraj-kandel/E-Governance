@@ -6,12 +6,14 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { RegisterProvider } from "./context/RegisterContext.jsx";
 import { LoginProvider } from "./context/LoginContext.jsx";
+// import Main from "./pages/Main.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RegisterProvider>
      <LoginProvider>
      <App />
+     
       <ToastContainer
         position="top-center"
         autoClose={2000}

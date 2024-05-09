@@ -45,7 +45,7 @@ const CreateBin = () => {
   }
   return (
     <>
-    <div className='w-full h-[100vh] flex justify-center  '>
+    <div className='bg-green-200 w-full h-[100vh] flex justify-center  '>
     <form className="w-[40%] mx-auto bg-slate-400 p-5">
   <div className="mb-4">
     <label htmlFor="binnumber" className="block  text-gray-700 text-sm font-bold mb-1">

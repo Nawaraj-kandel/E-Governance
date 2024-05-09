@@ -1,4 +1,7 @@
 import "./App.css";
+import ContactUs from "./components/Contact/ContactUs";
+import About from "./components/About/About";
+import Hero from "./components/Hero/Hero";
 import AdminForm from "./components/admin/AdminForm";
 import AdminHomePage from "./components/admin/AdminHomePage";
 import AdminRegister from "./components/admin/AdminRegister";
@@ -17,14 +20,20 @@ import UserForm from "./components/user/UserForm";
 import UserHomePage from "./components/user/UserHomePage";
 import UserRegister from "./components/user/UserRegister";
 import HomePage from "./pages/HomePage";
+import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+     <Navbar/>
+     
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path ="/about" element={<About/>}/>
+          <Route path="/contact" element={<ContactUs/>}/>
           <Route path="/adminLogin" element={<AdminForm />} />
           <Route path="/adminRegister" element={<AdminRegister />} />
           <Route path="/adminHomePage" element={ <ProtectedAdmin><AdminHomePage /></ProtectedAdmin> } />
@@ -39,7 +48,11 @@ function App() {
           <Route path="/updateBin/:id" element={<ProtectedAdmin><UpdateBin /></ProtectedAdmin>} />
           <Route path="/viewDriver" element={<ProtectedAdmin><ViewDriver /></ProtectedAdmin>} />
           <Route path="/displayComplaint" element={<ProtectedAdmin><Display/></ProtectedAdmin>}/>
+          
         </Routes>
+        {/* <Hero/> */}
+        <Footer/>
+        
       </BrowserRouter>
     </>
   );

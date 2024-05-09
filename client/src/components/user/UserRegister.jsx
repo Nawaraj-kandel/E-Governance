@@ -40,7 +40,7 @@ const UserRegister = () => {
   }
   return (
     <>
-         <div className="bg-gray-100 min-h-screen flex p-10 justify-center items-center">
+         <div className=" bg-green-200 min-h-screen flex p-10 justify-center items-center">
       <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-lg">
         <div className="mb-4">
           <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">

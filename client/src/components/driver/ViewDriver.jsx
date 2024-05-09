@@ -20,7 +20,7 @@ const ViewDriver = () => {
          {
               data.map((item)=>{
                 return(
-                  <div key={item.index} className="border border-gray-400 p-4 rounded-lg shadow-md">
+                  <div key={item.index} className=" bg-green-200 border border-gray-400 p-4 rounded-lg shadow-md">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="col-span-2 sm:col-span-1">
                       <p className="font-bold mb-2">Driver Details:</p>

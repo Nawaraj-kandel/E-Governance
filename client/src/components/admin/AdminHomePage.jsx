@@ -1,35 +1,38 @@
 import React from 'react'
 import Box from '../box/Box'
+import bin from '../assets/bin.png';
+import driver from '../assets/driver.png';
+import complaint from '../assets/complaint.png';
 
 const AdminHomePage = () => {
   const items = [
     {
-      icon:"",
+      icon:bin,
       name:"Create Bin",
       href:"/createBin"
     },
     {
-      icon:"",
+      icon:bin,
       name:"Update Bin",
       href:"/bin"
     },
     {
-       icon:"",
+       icon:driver,
        name:"Add Driver",
        href:"/driverRegister"
 
     },
     {
-      icon:"",
+      icon:driver,
       name:"View Driver",
       href:"/viewDriver",
     },
     {
-      icon:"",
+      icon:complaint,
       name:"Complaint",
       href:"/displayComplaint",
     },{
-      icon:"",
+      icon:complaint,
       name:"View Work Report",
       href:""
     }
@@ -37,8 +40,8 @@ const AdminHomePage = () => {
   ]
   return (
   <>
-  <h1 className='text-center font-semibold text-2xl pt-10'>Admin Panel</h1>
-      <div className="w-full h-[80vh] flex justify-center items-center">
+  <h1 className=' text-center font-semibold text-2xl pt-10'>Admin Panel</h1>
+      <div className="w-full h-[80vh] flex justify-center items-center ">
       <div className="w-full max-w-screen-lg">
         <div className="grid grid-cols-1 place-items-center sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {items.map((item, index) => (

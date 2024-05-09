@@ -46,7 +46,7 @@ const UpdateBin = () => {
     };
 
     return (
-        <div className="container mx-auto mt-10">
+        <div className="container mx-auto mt-10 bg-green-200">
             <div className="border border-gray-400 p-4 rounded-lg">
                 <h2 className="text-lg font-bold mb-2">Update Bin Data</h2>
                 <form onSubmit={handleSubmit}>

@@ -20,7 +20,7 @@ const DriverHomePage = () => {
  console.log(filter_bin);
 
   return (
-    <div>
+    <div className='bg-green-200'>
          <h1>View Work</h1>
         {
           filter_bin.map((item)=>{
