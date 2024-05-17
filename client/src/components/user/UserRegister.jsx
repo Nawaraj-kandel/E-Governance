@@ -14,7 +14,7 @@ const UserRegister = () => {
     password :""
   })
   const [emailError, setEmailError] = useState(false);
-  const handleChange = (e)=>{
+  const  handleChange = (e)=>{
     const {name, value} = e.target;
     
     if(name === 'email'){
@@ -35,6 +35,7 @@ const UserRegister = () => {
   };
 
   const handleSubmit = (e)=>{
+        console.log(data);
         e.preventDefault();
         addUser(data);
   }
@@ -50,7 +51,7 @@ const UserRegister = () => {
             type="text"
             id="name"
             name="fullName"
-            onChange={handleChange}
+            onChange={(e)=> handleChange(e)}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
@@ -62,7 +63,7 @@ const UserRegister = () => {
             type="text"
             id="address"
             name="localGoverment"
-            onChange={handleChange}
+            onChange={(e)=> handleChange(e)}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
@@ -74,7 +75,7 @@ const UserRegister = () => {
             type="text"
             id="ward"
             name="wardNo"
-            onChange={handleChange}
+            onChange={(e)=> handleChange(e)}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
@@ -86,7 +87,7 @@ const UserRegister = () => {
             type="text"
             id="village"
             name="village"
-            onChange={handleChange}
+            onChange={(e)=> handleChange(e)}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
@@ -98,7 +99,7 @@ const UserRegister = () => {
             type="text"
             id="tollName"
             name="tollName"
-            onChange={handleChange}
+            onChange={(e)=> handleChange(e)}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
@@ -110,7 +111,7 @@ const UserRegister = () => {
             type="email"
             id="email"
             name="email"
-            onChange={handleChange}
+            onChange={(e)=> handleChange(e)}
             className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
               emailError ? 'border-red-500' : ''
             }`}
@@ -125,12 +126,12 @@ const UserRegister = () => {
             type="password"
             id="password"
             name="password"
-            onChange={handleChange}
+            onChange={(e)=> handleChange(e)}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-        <div className="flex justify-center">
-          <Button name="Submit" onClick={handleSubmit} />
+        <div className="flex justify-center" onClick={(e)=> handleSubmit(e)} >
+          <Button name="Submit" />
         </div>
       </form>
     </div>

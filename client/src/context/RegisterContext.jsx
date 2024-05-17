@@ -30,7 +30,7 @@ export const RegisterProvider = ({children})=>{
     }
 
     const addDriver = async(driverData)=>{
-        console.log(driverData);
+
         try{
             const response = await axios.post('http://localhost:3000/driver/signup', driverData, config);
             if(response){
@@ -46,7 +46,6 @@ export const RegisterProvider = ({children})=>{
     }
 
     const addUser = async(userData)=>{
-
 
         try{
             const response = await axios.post('http://localhost:3000/user/signup', userData, config);
