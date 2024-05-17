@@ -47,7 +47,7 @@ const DriverRegister = () => {
             type="text"
             id="name"
             name="fullName"
-            onChange={handleChange}
+            onChange={(e)=> handleChange(e)}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
@@ -59,7 +59,7 @@ const DriverRegister = () => {
             type="text"
             id="address"
             name="address"
-            onChange={handleChange}
+            onChange={(e)=> handleChange(e)}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
@@ -71,7 +71,7 @@ const DriverRegister = () => {
             type="text"
             id="contact"
             name="contact"
-            onChange={handleChange}
+            onChange={(e)=> handleChange(e)}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
@@ -83,7 +83,7 @@ const DriverRegister = () => {
             type="email"
             id="email"
             name="email"
-            onChange={handleChange}
+            onChange={(e)=> handleChange(e)}
             className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
               emailError ? 'border-red-500' : ''
             }`}
@@ -98,11 +98,11 @@ const DriverRegister = () => {
             type="password"
             id="password"
             name="password"
-            onChange={handleChange}
+            onChange={(e)=> handleChange(e)}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-        <div className=" w-24 h-12 flex justify-center" onClick={handleSubmit}>
+        <div className=" w-24 h-12 flex justify-center" onClick={(e)=> handleSubmit(e)}>
           <Button name="Submit"  />
         </div>
       </form>

@@ -23,12 +23,13 @@ import HomePage from "./pages/HomePage";
 import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
+import Map from "./components/map/Map";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-     <Navbar/>
+     {/* <Navbar/> */}
      
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -48,10 +49,8 @@ function App() {
           <Route path="/updateBin/:id" element={<ProtectedAdmin><UpdateBin /></ProtectedAdmin>} />
           <Route path="/viewDriver" element={<ProtectedAdmin><ViewDriver /></ProtectedAdmin>} />
           <Route path="/displayComplaint" element={<ProtectedAdmin><Display/></ProtectedAdmin>}/>
-          
         </Routes>
-        {/* <Hero/> */}
-        <Footer/>
+        {/* <Footer/> */}
         
       </BrowserRouter>
     </>

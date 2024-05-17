@@ -31,7 +31,6 @@ const AdminForm = () => {
   const handleSubmit = async(e)=>{
     e.preventDefault();
     const response = await axios.post("http://localhost:3000/admin/login", data, config );
-    console.log(response);
     if(response){
       toast.success(response.data.message);
        admin(response.data.data.email);

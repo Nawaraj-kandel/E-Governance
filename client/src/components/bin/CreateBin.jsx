@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from '../button/Button'
-import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import Map from '../map/Map';
+import { toast } from 'react-toastify';
 const CreateBin = () => {
   const navigate = useNavigate();
+  const [map, setMap] = useState(false);
+  const [location, setLocation]= useState([]);
   const [data, setData] = useState({
     binNumber: "",
     locality: "",
@@ -14,7 +16,8 @@ const CreateBin = () => {
     driverEmail: "",
     driverName: "",
     loadType: "low",
-    cyclePeriod: "daily" 
+    cyclePeriod: "daily" ,
+    map:location,
   });
 
   const config = {
@@ -23,6 +26,10 @@ const CreateBin = () => {
     }
 }
 
+useEffect(() => {
+  setData(prevData => ({ ...prevData, map: location }));
+}, [location]);
+
   const handleChange= (e)=>{
     const {name, value} = e.target;
     setData({
@@ -30,9 +37,11 @@ const CreateBin = () => {
       [name]:value
     })
   }
-
   const handleSubmit= async(e)=>{
     e.preventDefault();
+
+
+
     const response = await axios.post("http://localhost:3000/bin/create", data, config);
     if(response){
       toast.success(response.data.message);
@@ -45,8 +54,8 @@ const CreateBin = () => {
   }
   return (
     <>
-    <div className='bg-green-200 w-full h-[100vh] flex justify-center  '>
-    <form className="w-[40%] mx-auto bg-slate-400 p-5">
+    <div className='bg-green-200 w-full h-full flex justify-center  '>
+    <form className="w-[40%] mx-auto bg-slate-400 p-10">
   <div className="mb-4">
     <label htmlFor="binnumber" className="block  text-gray-700 text-sm font-bold mb-1">
       Bin Number
@@ -155,6 +164,11 @@ const CreateBin = () => {
       <option value="weekly">Weekly</option>
     </select>
   </div>
+  <div>
+    <p onClick={()=>setMap(true)}>Set Location</p>
+    {map && <Map setLocation={setLocation}/>}
+  </div>
+
 
   <div className="flex justify-center">
     <div className="w-24 h-12 " onClick={(e)=> handleSubmit(e)}>

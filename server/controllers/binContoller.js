@@ -2,9 +2,9 @@ const { Bin } = require("../models/binModel");
 const { Driver } = require("../models/driverModel");
 
 exports.createBin = async(req, res)=>{
-    const { binNumber,  locality,landMark,village,driverEmail,driverName,loadType, cyclePeriod, status} = req.body;
+    const { binNumber,  locality,landMark,village,driverEmail,driverName,loadType, cyclePeriod, status, map} = req.body;
 
-    if(!(binNumber && locality && landMark && village && driverEmail && driverName && loadType && cyclePeriod)){
+    if(!(binNumber && locality && landMark && village && driverEmail && driverName && loadType && cyclePeriod, map)){
         return res.status(400).json({
             message:"required field is empty"
         })
@@ -30,7 +30,8 @@ exports.createBin = async(req, res)=>{
         driverName,
         loadType,
         cyclePeriod,
-        status
+        status,
+        location:map
     })
 
     res.status(200).json({message:"bin created successfully"});

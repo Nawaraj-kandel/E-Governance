@@ -1,9 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import ViewMap from '../map/ViewMap';
+
 
 const DriverHomePage = () => {
   const email = localStorage.getItem("data");
+  const [map, setMap] = useState(false);
+
   const [data, setData] = useState([]);
+  const [markers, setMarkers] = useState([]);
 
   useEffect(()=>{
 
@@ -15,9 +20,17 @@ const DriverHomePage = () => {
    fetchData();
   }, [])
 
-
  const filter_bin = data.filter(item => item.driverEmail == email);
- console.log(filter_bin);
+
+ useEffect(() => {
+  if (filter_bin.length > 0) {
+    const initialMarkers = data.map(item => ({
+      geocode: item.location[0].geocode,
+      popup: item.binNumber 
+    }));
+    setMarkers(initialMarkers);
+  }
+}, [filter_bin]);
 
   return (
     <div className='bg-green-200'>
@@ -49,6 +62,14 @@ const DriverHomePage = () => {
           })
         }
 
+
+
+<p onClick={()=>setMap(true)}>
+        
+    view work space
+      </p>
+
+      {map && <ViewMap marker={markers}/>}
     </div>
   )
 }

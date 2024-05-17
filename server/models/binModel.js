@@ -10,7 +10,11 @@ const binModel = new Schema({
     driverName:{type:String, require},
     status:{type:String, enum:["On progress", "Completed", "In Complete"]},
     loadType:{type:String, enum:["low", "medium", "high"]},
-    cyclePeriod:{type:String, enum:["daily", "twice", "weekly"]}
+    cyclePeriod:{type:String, enum:["daily", "twice", "weekly"]},
+    location: {
+        type: mongoose.Schema.Types.Mixed,
+        required: true
+      }
 })
 
 const virtual = binModel.virtual('id');
