@@ -37,7 +37,7 @@ const UserHomePage = () => {
       <ComplaintBox/>
       <p onClick={()=>setMap(true)}>
         click
-      {map && <ViewMap/>}
+      {map && <ViewMap marker={markers}/>}
       </p>
     </div>
   )

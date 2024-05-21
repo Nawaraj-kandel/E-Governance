@@ -29,7 +29,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-     {/* <Navbar/> */}
+     <Navbar/>
      
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -50,7 +50,7 @@ function App() {
           <Route path="/viewDriver" element={<ProtectedAdmin><ViewDriver /></ProtectedAdmin>} />
           <Route path="/displayComplaint" element={<ProtectedAdmin><Display/></ProtectedAdmin>}/>
         </Routes>
-        {/* <Footer/> */}
+        <Footer/>
         
       </BrowserRouter>
     </>
