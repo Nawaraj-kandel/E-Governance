@@ -5,28 +5,22 @@ import mail from '../assets/mail.png';
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-800 text-white py-4">
-            <p className='mx-auto flex justify-center items-center text-4xl mb-4' style={{ fontFamily: 'Times New Roman' }}>Contact us</p>
-            <div className="container mx-auto flex justify-center items-center">
-                
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="mx-2">
-                    <img src={instagram_icon} alt="Instagram" className="h-8 bg-slate-800" />
-                </a>
-                <a href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer" className="mx-2">
-                    <img src={whatsapp_icon} alt="WhatsApp" className="h-8 bg-slate-800" />
-                </a>
-                <a href="https://www.gmail.com/" target="_blank" rel="noopener noreferrer" className="mx-2">
-                    <img  src={mail} alt="gmail" className="h-8 bg-slate-800" />
-                </a>
+        <footer className="bg-green-600 text-white py-4">
+            <p className='text-center text-2xl mb-4' style={{ fontFamily: 'Times New Roman' }}>Contact us</p>
+           
+            <div className='flex flex-col justify-center items-center mt-4'>
+                <ul className='text-center'>
+                    <li>Email: wastemanagementbkmc@gmail.com</li>
+                    <li>Phone: +1234567890</li>
+                    <li>Address: Bhaktapur, Nepal</li>
+                </ul>
             </div>
-            <div>
-            <p className='flex justify-center mt-4'>
-                    Email: wastemanagementbkmc@gmail.com<br />
-                    Phone: +1234567890<br />
-                    Address: Bhaktapur,Nepal
-                </p>
-                <p className='flex justify-center mt-2'>
-                    If you have any queries or complain  <a href="/Contact" className="text-blue-500 hover:underline mr-2"> <p className='ml-2'> Click Here</p>   </a> 
+            <div className='flex justify-center mt-2'>
+                <p>
+                    If you have any queries or complaints 
+                    <a href="/Contact" className="text-blue-800 font-bold hover:underline ml-2"> 
+                        Click Here
+                    </a>
                 </p>
             </div>
         </footer>

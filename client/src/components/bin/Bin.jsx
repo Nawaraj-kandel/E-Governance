@@ -42,12 +42,12 @@ const Bin = () => {
      {
         data && (
             <>
-            <h2 className="text-lg font-bold mb-2">Bin Data</h2>
+            <h2 className=" bg-green-200 text-lg font-bold p-4 flex justify-center ">Bin Data</h2>
              {
               data.map((item)=>{
                 return(
-                  <div key={item.index} className="border border-gray-400 p-4 rounded-lg">
-                  <div className="grid grid-cols-2 gap-4">
+                  <div key={item.index} className="border border-gray-400 p-4 rounded-lg bg-green-200">
+                  <div className=" bg-white grid grid-cols-2 gap-4 p-6">
                       <div>
                           <p><span className="font-bold">Bin Number:</span> {item.binNumber}</p>
                           <p><span className="font-bold">Cycle Period:</span> {item.cyclePeriod}</p>
@@ -66,7 +66,7 @@ const Bin = () => {
                      <Link to={`/updateBin/${item.id}`}>
                      <Button name="update"/>
                       </Link>
-                     <button className='w-24 h-12 bg-red-400'  onClick={()=> handleDelete(item.id)}>Delete</button>
+                     <button className='w-24 h-12 bg-red-400 rounded-lg'  onClick={()=> handleDelete(item.id)}>Delete</button>
                   </div>
                 
               </div>

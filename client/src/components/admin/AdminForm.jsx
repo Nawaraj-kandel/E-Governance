@@ -43,7 +43,7 @@ const AdminForm = () => {
   
   return (
     <>
-      <div className=" bg-green-200 min-h-screen flex justify-center items-center">
+      <div className="  bg-green-200 min-h-screen flex justify-center items-center">
       <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-md">
         <div className="mb-4">
           <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
