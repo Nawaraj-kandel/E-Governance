@@ -35,19 +35,18 @@ const Bin = () => {
       }
   };
 
-  console.log(data);
   return (
     <>
     
      {
         data && (
-            <>
-            <h2 className=" bg-green-200 text-lg font-bold p-4 flex justify-center ">Bin Data</h2>
+            <div className='bg-green-200'>
+            <h2 className=" bg-green-200 text-lg font-bold p-4 flex justify-center ">Bin Information</h2>
              {
               data.map((item)=>{
                 return(
-                  <div key={item.index} className="border border-gray-400 p-4 rounded-lg bg-green-200">
-                  <div className=" bg-white grid grid-cols-2 gap-4 p-6">
+                  <div key={item.index} className=" mx-auto w-[70vw] border-2 border-black p-4 rounded-lg mt-1 bg-green-200">
+                  <div className=" bg-green-200 ron grid grid-cols-2 gap-4 p-6">
                       <div>
                           <p><span className="font-bold">Bin Number:</span> {item.binNumber}</p>
                           <p><span className="font-bold">Cycle Period:</span> {item.cyclePeriod}</p>
@@ -73,7 +72,7 @@ const Bin = () => {
                 )
               })
              }          
-            </>
+            </div>
         )
      } 
     </>

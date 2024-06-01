@@ -38,7 +38,9 @@ const UserHomePage = () => {
       <p className=' cursor-pointer p-4' onClick={() => setMap(!map)}>
         Click here to {map ? 'hide' : 'view'} the availability of dustbins
       </p>
-      {map && <ViewMap marker={markers}/>}
+     <div className='p-10 rounded-3xl'>
+     {map && <ViewMap marker={markers}/>}
+     </div>
     </div>
   )
 }

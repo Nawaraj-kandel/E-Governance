@@ -37,8 +37,9 @@ const DriverRegister = () => {
   }
   return (
     <>
-        <div className="bg-green-200 min-h-screen flex justify-center items-center">
-      <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-md">
+        <div className="bg-green-200 min-h-screen flex justify-center flex-col items-center">
+          <h1 className='text-2xl font-bold m-5'>Add Driver</h1>
+      <form className="bg-green-200 border-2 border-black rounded-lg shadow-md rounded px-8 pt-6 pb-8 w-full max-w-md">
         <div className="mb-4">
           <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
             Name of Driver

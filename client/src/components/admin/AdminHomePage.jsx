@@ -15,7 +15,7 @@ const AdminHomePage = () => {
     },
     {
       icon: bin,
-      name: "Update Bin",
+      name: "View Bin",
       href: "/bin"
     },
     {
@@ -32,17 +32,13 @@ const AdminHomePage = () => {
       icon: complaint,
       name: "Complaint",
       href: "/displayComplaint",
-    }, {
-      icon: complaint,
-      name: "View Work Report",
-      href: ""
     }
   ];
 
   return (
     <>
-      <h1 className='bg-green-200 text-center font-semibold text-2xl pt-10'>Admin Panel</h1>
-      <div className="bg-green-200 w-full min-h-screen flex justify-center items-center">
+      <h1 className='bg-green-200 text-center font-semibold text-2xl pt-10'>Admin Dashboard</h1>
+      <div className="bg-green-200 w-full h-[65vh] flex justify-center items-center">
         <div className="w-full max-w-screen-lg">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2  justify-items-center">
             {items.map((item, index) => (

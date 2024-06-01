@@ -32,6 +32,7 @@ const CreateBin = () => {
   }, [location]);
 
   const handleChange = (e) => {
+    e.preventDefault();
     const { name, value } = e.target;
     setData({
       ...data,
@@ -54,7 +55,8 @@ const CreateBin = () => {
   return (
     <>
       <div className='bg-green-200 w-full h-full flex justify-center pt-6 pb-6'>
-        <form className='w-fit md:w-[40%] lg:w-[40%] mx-auto bg-slate-400 p-6 md:p-8 lg:p-10'>
+        <div className='w-fit md:w-[40%] lg:w-[40%] mx-auto bg-green-200 border-2 border-black rounded-lg p-6 md:p-8 lg:p-10'>
+        <form >
           <div className='mb-4'>
             <label htmlFor='binnumber' className='block text-gray-700 text-sm font-bold mb-1'>
               Bin Number
@@ -63,7 +65,7 @@ const CreateBin = () => {
               type='text'
               id='binnumber'
               name='binNumber'
-              onChange={handleChange}
+              onChange={(e)=> handleChange(e)}
               required
               className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             />
@@ -76,7 +78,7 @@ const CreateBin = () => {
               type='text'
               id='locality'
               name='locality'
-              onChange={handleChange}
+              onChange={(e)=> handleChange(e)}
               required
               className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             />
@@ -89,7 +91,7 @@ const CreateBin = () => {
               type='text'
               id='landmark'
               name='landMark'
-              onChange={handleChange}
+              onChange={(e)=> handleChange(e)}
               required
               className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             />
@@ -102,7 +104,7 @@ const CreateBin = () => {
               type='text'
               id='village'
               name='village'
-              onChange={handleChange}
+              onChange={(e)=> handleChange(e)}
               required
               className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             />
@@ -115,7 +117,7 @@ const CreateBin = () => {
               type='email'
               id='driveremail'
               name='driverEmail'
-              onChange={handleChange}
+              onChange={(e)=> handleChange(e)}
               required
               className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             />
@@ -128,7 +130,7 @@ const CreateBin = () => {
               type='text'
               id='drivername'
               name='driverName'
-              onChange={handleChange}
+              onChange={(e)=> handleChange(e)}
               required
               className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             />
@@ -140,7 +142,7 @@ const CreateBin = () => {
             <select
               id='loadtype'
               name='loadType'
-              onChange={handleChange}
+              onChange={(e)=> handleChange(e)}
               className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             >
               <option value='low'>Low</option>
@@ -155,7 +157,7 @@ const CreateBin = () => {
             <select
               id='cycleperiod'
               name='cyclePeriod'
-              onChange={handleChange}
+              onChange={(e)=> handleChange(e)}
               className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             >
               <option value='daily'>Daily</option>
@@ -163,28 +165,29 @@ const CreateBin = () => {
               <option value='weekly'>Weekly</option>
             </select>
           </div>
-          <div className='mb-4'>
-            <label
-              className='block text-gray-700 text-sm font-bold mb-1'
-              htmlFor='map-button'
-            >
-              {/* Set Location */}
-            </label>
-            <button
-              id='map-button'
-              className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
-              onClick={() => setMap((prev) => !prev)}
-            >
-              Set Location
-            </button>
-            {map && <Map setLocation={setLocation} />}
-          </div>
-          <div className='flex justify-center pt-4'>
-            <div className='w-24 h-12' onClick={handleSubmit}>
-              <Button name='Add Bin' />
-            </div>
-          </div>
         </form>
+
+        <div className='mb-4'>
+              
+              <button
+                id='map-button'
+                className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+                onClick={() => setMap(true)}
+              >
+                Set Location
+              </button>
+              {map && <Map setLocation={setLocation} />}
+            </div>
+  
+            <div className='flex justify-center pt-4'>
+              <div className='w-24 h-12' onClick={handleSubmit}>
+                <Button name='Add Bin' />
+              </div>
+            </div>
+
+            </div>
+
+     
       </div>
     </>
   );

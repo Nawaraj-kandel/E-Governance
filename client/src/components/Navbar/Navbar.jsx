@@ -37,10 +37,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-green-500 flex justify-between items-center px-6 mt-0">
+    <>
+    <div className="bg-green-200 flex justify-between items-center py-2 px-6 mt-0">
       <div className="flex items-center">
-        <Link to="/" className="text-white hover:text-blue-400 mr-4 text-5xl flex justify-center" style={{ fontFamily: 'Times New Roman' }}>
-          <img className="mt-0 text-white h-16" src={logo} alt="ministry logo" />
+        <Link to="/" className="text-black hover:text-blue-400 mr-4 text-5xl flex justify-center" style={{ fontFamily: 'Times New Roman' }}>
+          <img className="mt-0  h-16" src={logo} alt="ministry logo" />
           <p className="ml-4 mt-2" style={{ fontFamily: 'Times New Roman' }}>Cleaner</p>
         </Link>
 
@@ -55,28 +56,26 @@ const Navbar = () => {
         </button>
       </div>
 
+
       <div className="hidden md:flex">
-        <Link to="/" className="text-white hover:text-blue-400 mr-12 text-2xl" style={{ fontFamily: 'Times New Roman' }}>
+
+      <div className="pt-2 pr-1">
+      <Link to="/" className="text-black hover:text-blue-400 mr-6 text-2xl" style={{ fontFamily: 'Times New Roman' }}>
           Home
         </Link>
-        <Link to="/contact" className="text-white hover:text-blue-400 mr-12 text-2xl" style={{ fontFamily: 'Times New Roman' }}>
-          Contact us
-        </Link>
-        <Link to="/about" className="text-white hover:text-blue-400 text-2xl" style={{ fontFamily: 'Times New Roman' }}>
+        <Link to="/about" className="text-black hover:text-blue-400 text-2xl" style={{ fontFamily: 'Times New Roman' }}>
           About us
         </Link>
       </div>
-
-      <div className="hidden md:flex">
         <div className="relative" onMouseEnter={() => setSignUpDropDown(true)} onMouseLeave={() => setSignUpDropDown(false)}>
           <div>
             <Button name="Sign Up" />
           </div>
           {signUpDropDown && (
             <div className="absolute top-full left-0" onMouseEnter={() => setSignUpDropDown(true)} onMouseLeave={() => setSignUpDropDown(false)}>
-              <ul className="w-20 h-16 border-2 flex flex-col border-none mt-4">
+              <ul className=" w-24 border-2 flex flex-col border-none  bg-blue-300   py-3 rounded-b-md">
                 {register.map((items) => (
-                  <Link to={items.href} key={items.href} className="cursor-pointer hover:text-blue-400 bg-green-600 text-white p-4 ">
+                  <Link to={items.href} key={items.href} className="cursor-point  text-black  text-center">
                     {items.name}
                   </Link>
                 ))}
@@ -90,9 +89,9 @@ const Navbar = () => {
           </div>
           {signInDropDown && (
             <div className="absolute top-full left-0" onMouseEnter={() => setSignInDropDown(true)} onMouseLeave={() => setSignInDropDown(false)}>
-              <ul className="w-24 p-4 border-2 flex flex-col border-none text-white bg-green-600 mt-4">
+              <ul className="w-24 py-3 border-2 flex flex-col border-none text-white bg-blue-300 rounded-b-md">
                 {login.map((items) => (
-                  <Link to={items.href} key={items.href} className="cursor-pointer hover:text-blue-400">
+                  <Link to={items.href} key={items.href} className="cursor-pointer  text-black text-center">
                     {items.name}
                   </Link>
                 ))}
@@ -101,6 +100,8 @@ const Navbar = () => {
           )}
         </div>
       </div>
+
+    
 
       {showMenu && (
         <div className="md:hidden ">
@@ -149,7 +150,11 @@ const Navbar = () => {
           </div>
         </div>
       )}
+  
+ 
     </div>
+    <hr style={{ backgroundColor: 'black', boxShadow: '0 2px 12px rgb(0, 0, 0)' }} />
+    </>
   );
 };
 

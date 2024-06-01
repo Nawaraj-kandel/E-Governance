@@ -37,12 +37,7 @@ const Hero = () => {
         <p className="mt-4 text-center text-black font-medium mb-4 md:mb-8 md:text-lg">
           Access government waste management services digitally: streamline waste collection, recycling, and disposal for a cleaner, greener community, all at your fingertips.
         </p>
-        <p className='font-bold mb-4 md:mb-8'>For getting access</p>
-        
-        {/* Use Link component instead of button */}
-        <Link to="/userRegister" className='bg-green-600 hover:bg-green-700 text-white h-10 w-24 flex items-center justify-center rounded-md'>
-          Sign up
-        </Link>
+
       </div>
       <div className="md:w-1/2">
         <img className="w-full" src={heroimage} alt="hero" />
