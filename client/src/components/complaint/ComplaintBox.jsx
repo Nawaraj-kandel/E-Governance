@@ -1,9 +1,8 @@
-
-
-
 import React, { useState } from 'react';
 import Button from '../button/Button';
 import axios from 'axios';
+import { toast } from 'react-toastify'
+
 
 const ComplaintBox = () => {
     const user = localStorage.getItem('email');
@@ -14,7 +13,12 @@ const ComplaintBox = () => {
     const handleSubmit = async () => {
         try {
             const response = await axios.post("http://localhost:3000/complaint/create", { user, fullName, address, complaint });
-            console.log(response);
+            if(!response){
+                toast.error("Record is not success");
+            }
+
+            toast.success("Record saved");
+            setComplaint('');
         } catch (error) {
             console.error("There was an error submitting the complaint!", error);
         }
@@ -26,6 +30,7 @@ const ComplaintBox = () => {
             <textarea
                 className="w-full  max-w-lg px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 resize-none p-"
                 onChange={(e) => setComplaint(e.target.value)}
+                value={complaint}
                 rows="6"
                 placeholder="Write your complaint here..."
             ></textarea>
