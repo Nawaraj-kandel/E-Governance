@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ViewMap from "../map/ViewMap";
+import { toast } from "react-toastify";
 
 const DriverHomePage = () => {
   const email = localStorage.getItem("data");
@@ -34,6 +35,8 @@ const DriverHomePage = () => {
       await axios.patch(`http://localhost:3000/bin/update/${binId}`, {
         status: newStatus,
       });
+
+      toast.success('Updated your status');
     } catch (error) {
       console.error("Error updating status:", error);
     }
