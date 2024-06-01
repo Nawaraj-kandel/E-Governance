@@ -1,10 +1,11 @@
+
 import React from 'react';
 import about from '../assets/about.png';
 
 const About = () => {
     return (
-        <div className='bg-green-200 h-screen p-8 flex'>
-            <div className="w-3/4 pr-16">
+        <div className='bg-green-200 p-8 flex flex-col md:flex-row'>
+            <div className="md:w-3/4 pr-0 md:pr-16">
                 <h1 className='font-bold text-3xl mb-4' style={{ fontFamily: 'Times New Roman' }}>About us:</h1>
                 <p className='text-lg mb-4' style={{ fontFamily: 'Times New Roman' }}>
                     Imagine a seamless waste management system at your service, courtesy of the government. Through a user-friendly digital platform, citizens gain access to a comprehensive suite of services aimed at enhancing convenience and efficiency in waste disposal. 
@@ -18,8 +19,8 @@ const About = () => {
                     In essence, this digital waste management system revolutionizes the citizen experience, offering unparalleled convenience and transparency. By providing visibility into waste collection schedules, facilitating complaint resolution, and optimizing resource allocation, the government empowers individuals to actively participate in maintaining clean and healthy communities. Together, through seamless collaboration between citizens and authorities, we pave the way for a cleaner, greener future.
                 </p>
             </div>
-            <div className="w-1/4">
-                <img className='h-220 mt-40' src={about} alt="picture of environment with waste" />
+            <div className="md:w-1/4">
+                <img className='h-48 md:h-auto mt-8 md:mt-0' src={about} alt="picture of environment with waste" />
             </div>
         </div>
     );
