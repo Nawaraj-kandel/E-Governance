@@ -1,15 +1,13 @@
 import React from 'react';
-import instagram_icon from '../assets/instagram_icon.png';
-import whatsapp_icon from '../assets/whatsapp_icon.png';
-import mail from '../assets/mail.png';
+
 
 const Footer = () => {
     return (
-        <footer className="bg-green-600 text-white py-4">
+        <footer className="bg-green-500 text-white py-4">
             <p className='text-center text-2xl mb-4' style={{ fontFamily: 'Times New Roman' }}>Contact us</p>
            
-            <div className='flex flex-col justify-center items-center mt-4'>
-                <ul className='text-center'>
+            <div className='flex flex-col items-center mt-2'>
+                <ul className='flex space-x-4'>
                     <li>Email: wastemanagementbkmc@gmail.com</li>
                     <li>Phone: +1234567890</li>
                     <li>Address: Bhaktapur, Nepal</li>
