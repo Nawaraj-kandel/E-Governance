@@ -13,7 +13,7 @@ const AdminHomePage = () => {
     },
     {
       icon:bin,
-      name:"Update Bin",
+      name:"View Bin",
       href:"/bin"
     },
     {

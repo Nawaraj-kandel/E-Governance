@@ -82,7 +82,7 @@ const Navbar = () => {
           </div>
           {signInDropDown && (
             <div className="absolute top-full left-0" onMouseEnter={() => setSignInDropDown(true)} onMouseLeave={() => setSignInDropDown(false)}>
-              <ul className="w-24 h-20 border-2 flex flex-col border-none text-white bg-slate-600 mt-4">
+              <ul className="w-24  border-2 flex flex-col border-none text-white bg-slate-600 mt-4 p-4">
                 {login.map((items) => (
                   <Link
                     to={items.href}

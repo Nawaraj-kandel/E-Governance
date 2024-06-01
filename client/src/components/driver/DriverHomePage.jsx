@@ -10,15 +10,8 @@ const DriverHomePage = () => {
   const [data, setData] = useState([]);
   const [markers, setMarkers] = useState([]);
 
-  useEffect(()=>{
 
-    const fetchData = async()=>{
-      const response= await axios.get("http://localhost:3000/bin");
-      setData(response.data.data);
-    }
 
-   fetchData();
-  }, [])
 
  const filter_bin = data.filter(item => item.driverEmail == email);
 
@@ -30,7 +23,27 @@ const DriverHomePage = () => {
     }));
     setMarkers(initialMarkers);
   }
-}, [filter_bin]);
+},[]);
+
+ const handleChange= async(e, id) =>{
+  const updatedData = { status: e.target.value };
+    try {
+    await axios.patch(`http://localhost:3000/bin/update/${id}`, updatedData);
+    alert("uploaded");
+} catch (error) {
+    console.error("Error updating data:", error);
+}
+}
+
+useEffect(()=>{
+
+  const fetchData = async()=>{
+    const response= await axios.get("http://localhost:3000/bin");
+    setData(response.data.data);
+  }
+
+ fetchData();
+},[data,handleChange])
 
   return (
     <div className='bg-green-200'>
@@ -52,7 +65,14 @@ const DriverHomePage = () => {
                           <p><span className="font-bold">Load Type:</span> {item.loadType}</p>
                           <p><span className="font-bold">Locality:</span> {item.locality}</p>
                           <p><span className="font-bold">Village:</span> {item.village}</p>
-                          {item.status && <p><span className="font-bold">Status:</span> {item.status}</p>}
+                          <form action="">
+                            <label htmlFor="status">status</label>
+                            <select name="status" id="status" onChange={(e)=> handleChange(e, item.id)}>
+                              <option value="In Complete">Incomplete</option>
+                              <option value="In Progess">In Progress</option>
+                              <option value="Complete">Complete</option>
+                            </select>
+                          </form>
 
                       </div>
                    

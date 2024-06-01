@@ -8,7 +8,7 @@ const userModel = new Schema({
    village:{type:String, require},
    tollName : {type:String},
    email:{type:String, require},
-   password :{type:String}
+   password :{type:String, require}
 })
 
 const virtual = userModel.virtual('id');
